@@ -4,7 +4,7 @@ throttle(['docker']) {
             def scmVars = checkout scm
             def commitHash = scmVars.GIT_COMMIT
             for (scmVar in scmVars){
-                echo scmVar
+                echo "scmVar $scmVar"
             }
         }
 
