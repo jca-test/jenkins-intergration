@@ -9,5 +9,10 @@ throttle(['docker']) {
                 echo "ok"
             """
         }
+        stage('env'){
+            sh """
+                env
+            """
+        }
     }
 }
