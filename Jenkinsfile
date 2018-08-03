@@ -18,5 +18,14 @@ throttle(['docker']) {
                 env
             """
         }
+        stage('get build trigger'){
+            if( env.CHANGE_BRANCH ){
+                echo "is PR"
+            }else if( env.TAG_NAME ){
+                echo "tagged with ${env.TAG_NAME}"
+            }else{
+                echo "building ${env.BRANCH_NAME}"
+            }
+        }
     }
 }
