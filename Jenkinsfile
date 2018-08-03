@@ -1,7 +1,11 @@
 throttle(['docker']) {
     node('docker') {
         stage('Set up') {
-            checkout scm
+            def scmVars = checkout scm
+            def commitHash = scmVars.GIT_COMMIT
+            for (scmVar in scmVars){
+                echo scmVar
+            }
         }
 
         stage('Docker Build'){
